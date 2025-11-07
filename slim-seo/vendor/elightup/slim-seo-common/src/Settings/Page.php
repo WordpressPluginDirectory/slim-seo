@@ -1,5 +1,5 @@
 <?php
-namespace SlimSEO\Settings;
+namespace eLightUp\SlimSEO\Common\Settings;
 
 class Page {
 	public static function setup(): void {
@@ -14,6 +14,7 @@ class Page {
 			'slim-seo',
 			[ __CLASS__, 'render' ]
 		);
+		add_action( "admin_print_styles-{$page_hook}", [ __CLASS__, 'enqueue' ] );
 		add_action( "load-{$page_hook}", [ __CLASS__, 'save' ] );
 	}
 
@@ -111,6 +112,12 @@ class Page {
 
 		</div>
 		<?php
+	}
+
+	public static function enqueue(): void {
+		wp_enqueue_style( 'slim-seo-components', 'https://cdn.jsdelivr.net/gh/elightup/slim-seo@master/css/components.css', [], '1.0.0' );
+		wp_enqueue_style( 'slim-seo-settings', 'https://cdn.jsdelivr.net/gh/elightup/slim-seo@master/css/settings.css', [], '1.0.0' );
+		wp_enqueue_script( 'slim-seo-settings', 'https://cdn.jsdelivr.net/gh/elightup/slim-seo@master/js/settings.js', [], '1.0.0', true );
 	}
 
 	public static function save(): void {

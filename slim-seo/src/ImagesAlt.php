@@ -10,7 +10,7 @@ class ImagesAlt {
 		// Add missing alt attribute when outputting images via the_post_thumbnail-family functions.
 		add_filter( 'wp_get_attachment_image_attributes', [ $this, 'add_missing_alt_attribute' ], 10, 2 );
 
-		// Add missing alt attribute when inserting images to the editor. Work with both classic and Gutenberg editor.
+		// Add missing alt attribute when inserting images to classic and block editors.
 		add_filter( 'wp_prepare_attachment_for_js', [ $this, 'add_missing_alt_attribute' ], 10, 2 );
 
 		add_action( 'add_attachment', [ $this, 'generate_alt_text_on_upload' ] );
@@ -20,11 +20,11 @@ class ImagesAlt {
 	}
 
 	public function add_missing_alt_attribute( array $attributes, $attachment ): array {
-		if ( empty( $attachment ) ) {
+		if ( empty( $attachment ) || ! empty( $attributes['alt'] ) ) {
 			return $attributes;
 		}
 
-		$attributes['alt'] = empty( $attributes['alt'] ) ? $this->normalize( $attachment->post_title ) : $attributes['alt'];
+		$attributes['alt'] = $this->normalize( $attachment->post_title );
 		return $attributes;
 	}
 
@@ -83,9 +83,14 @@ class ImagesAlt {
 	private function normalize( string $alt ): string {
 		// Remove hyphens, underscores & extra spaces.
 		$alt = preg_replace( '%\s*[-_\s]+\s*%', ' ', $alt );
+		// Remove numbers from the end.
+		$alt = preg_replace( '%\s\d+$%', '', $alt );
 
 		// Capitalize the first letter.
-		$alt = ucfirst( strtolower( $alt ) );
+		$alt = ucfirst( $alt );
+
+		// Trim spaces.
+		$alt = trim( $alt );
 
 		return $alt;
 	}

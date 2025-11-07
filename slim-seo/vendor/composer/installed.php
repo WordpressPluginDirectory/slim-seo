@@ -1,9 +1,9 @@
 <?php return array(
     'root' => array(
         'name' => 'elightup/slim-seo',
-        'pretty_version' => '4.5.1',
-        'version' => '4.5.1.0',
-        'reference' => 'e7d2deb1e9e64b9cd6919afa8188afcd6c183ea6',
+        'pretty_version' => '4.7.3',
+        'version' => '4.7.3.0',
+        'reference' => '8c146bdf6152c9709c7754e15a6edeefe3caea2d',
         'type' => 'wordpress-plugin',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -11,18 +11,29 @@
     ),
     'versions' => array(
         'elightup/slim-seo' => array(
-            'pretty_version' => '4.5.1',
-            'version' => '4.5.1.0',
-            'reference' => 'e7d2deb1e9e64b9cd6919afa8188afcd6c183ea6',
+            'pretty_version' => '4.7.3',
+            'version' => '4.7.3.0',
+            'reference' => '8c146bdf6152c9709c7754e15a6edeefe3caea2d',
             'type' => 'wordpress-plugin',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
             'dev_requirement' => false,
         ),
+        'elightup/slim-seo-common' => array(
+            'pretty_version' => 'dev-master',
+            'version' => 'dev-master',
+            'reference' => '5033b1bbc10f29f50de95d3c6574e0d863cdf2bf',
+            'type' => 'library',
+            'install_path' => __DIR__ . '/../elightup/slim-seo-common',
+            'aliases' => array(
+                0 => '9999999-dev',
+            ),
+            'dev_requirement' => false,
+        ),
         'elightup/slim-twig' => array(
             'pretty_version' => 'dev-master',
             'version' => 'dev-master',
-            'reference' => '04ebb63b2d6c857ce842a1f089803abd4a020d80',
+            'reference' => 'c5ced434e08cb5d29175d17718ecc4562165f8cb',
             'type' => 'library',
             'install_path' => __DIR__ . '/../elightup/slim-twig',
             'aliases' => array(

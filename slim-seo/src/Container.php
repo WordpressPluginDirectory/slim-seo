@@ -1,6 +1,9 @@
 <?php
 namespace SlimSEO;
 
+use eLightUp\SlimSEO\Common\Settings\Page as SettingsPage;
+use eLightUp\SlimSEO\Common\Settings\Post as SettingsPost;
+
 class Container {
 	private $services = [];
 
@@ -11,6 +14,8 @@ class Container {
 		$services['core'] = new Core;
 
 		$services['upgrade'] = new Upgrade;
+
+		$services['featured_plugins'] = new FeaturedPlugins;
 
 		$services['meta_tags_hook']   = new MetaTags\Hook;
 		$services['canonical_url']    = new MetaTags\CanonicalUrl;
@@ -117,8 +122,11 @@ class Container {
 	public function init() {
 		do_action( 'slim_seo_init', $this );
 
-		Settings\Page::setup();
+		SettingsPage::setup();
+		SettingsPost::setup();
+
 		$settings = $this->services['settings'];
+
 		foreach ( $this->services as $id => $service ) {
 			if ( ! $settings->is_feature_active( $id ) ) {
 				if ( method_exists( $service, 'deactivate' ) ) {
