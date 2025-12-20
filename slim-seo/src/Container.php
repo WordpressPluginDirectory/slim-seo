@@ -52,6 +52,7 @@ class Container {
 		$services['meta_tags_rest_api'] = new Settings\MetaTags\RestApi;
 
 		$services['redirection'] = new Redirection\Loader;
+		$services['robots_txt']  = new RobotsTxt\Loader( $services['settings'] );
 		$services['breadcrumbs'] = new Breadcrumbs;
 
 		$services['rest_api'] = new RestApi( $services['meta_title'], $services['meta_description'] );
@@ -117,6 +118,7 @@ class Container {
 		);
 
 		$services['the_events_calendar'] = new Integrations\TheEventsCalendar;
+		$services['generateblocks'] = new Integrations\GenerateBlocks;
 	}
 
 	public function init() {

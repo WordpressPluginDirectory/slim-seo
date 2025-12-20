@@ -4,14 +4,14 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f
+class ComposerStaticInit35ee6476623cb1d1baca6af680606c6a
 {
     public static $prefixLengthsPsr4 = array (
-        'e' => 
+        'e' =>
         array (
             'eLightUp\\SlimSEO\\Common\\' => 24,
         ),
-        'S' => 
+        'S' =>
         array (
             'SlimTwig\\' => 9,
             'SlimSEO\\' => 8,
@@ -19,15 +19,15 @@ class ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f
     );
 
     public static $prefixDirsPsr4 = array (
-        'eLightUp\\SlimSEO\\Common\\' => 
+        'eLightUp\\SlimSEO\\Common\\' =>
         array (
             0 => __DIR__ . '/..' . '/elightup/slim-seo-common/src',
         ),
-        'SlimTwig\\' => 
+        'SlimTwig\\' =>
         array (
             0 => __DIR__ . '/..' . '/elightup/slim-twig/src',
         ),
-        'SlimSEO\\' => 
+        'SlimSEO\\' =>
         array (
             0 => __DIR__ . '/../..' . '/src',
         ),
@@ -40,9 +40,9 @@ class ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f::$prefixDirsPsr4;
-            $loader->classMap = ComposerStaticInit22b2089a9ad06b3b423db439c0900d7f::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit35ee6476623cb1d1baca6af680606c6a::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit35ee6476623cb1d1baca6af680606c6a::$prefixDirsPsr4;
+            $loader->classMap = ComposerStaticInit35ee6476623cb1d1baca6af680606c6a::$classMap;
 
         }, null, ClassLoader::class);
     }
